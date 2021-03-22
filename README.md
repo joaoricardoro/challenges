@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Challenges
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Com o objetivo de se tornar um funcionário ZRP você precisa provar para o nosso timme, um grupo de profissionais extremamente competentes e habilidosos, que você será capaz de analisar, prever e desenvolver as tarefas que te forem designadas.
 
-## Available Scripts
+Para cada um dos possíveis cargos que você for se candidatar haverá desafios dos mais diversos níveis, podendo estes serem _fáceis_, _normais_ ou _difíceis_. Você pode submeter o teste que achar que mais se encaixa com o seu perfil.
 
-In the project directory, you can run:
+## Como submeter o seu projeto
 
-### `yarn start`
+Cada área e cada projeto tem a sua própria regra quanto a submissão do desafio. Leia atentamente as regras e instruções antes de enviar seu projeto.
 
-Runs the app in the development mode.\ 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Dúvidas? Envie um email para [jobs@zrp.com.br](jobs@zrp.com.br).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Como o processo seletivo da ZRP funciona
 
-### `yarn test`
+### Primeira Fase - Seleção
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Na primeira fase você será avaliado por um dos sócios da ZRP. O objetivo dessa avaliação é ver se você possui aderência à cultura da empresa. Nós prezamos por pessoas prestativas, pró-ativas, comunicativas e interessadas em aprender. Suas core skills serão os seus diferenciais aqui.
 
-### `yarn build`
+### Segunda Fase - Desafio
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Se você passar na primeira fase você deverá escolher um desafio que você deseja enviar e nos dar uma previsão de quanto tempo você demorará para enviar aquele desafio.
+Não há tempo limite para a submissão, porém você será avaliado pela sua capacidade de prever seu tempo de entrega.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Depois desse envio nosso time irá avaliar se:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Você teve uma boa previsão do tempo que você levaria para resolver o problema
+- Resolveu com precisão o problema apresentado
+- Cumpriu com os requisitos e critérios de avaliação daquele desafio
 
-### `yarn eject`
+### Terceira Fase - Feedback
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para aqueles que submeteram o desafio da segunda fase haverá uma revisão do desafio pelo nosso time e te chamaremos para um breve call de feedback dizendo se você foi contratado ou não e o porque da decisão.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Escolha o seu caminho
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para qual vaga você está se candidatando?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Desenvolvedor](./dev)
+- [Devops](./devops)
+- [Designer](./design)
+- [PO](./po)
+- [QA](./qa)
+- [Comercial](./comercial)
+- [RH](./rh)
