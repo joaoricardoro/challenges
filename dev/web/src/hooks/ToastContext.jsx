@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useCallback, useState } from 'react';
 import uuid from "react-uuid";
 
-import ToastContainer from '../components/ToastContainer';
+import ToastContainer  from '../components/ToastContainer/index.jsx';
 
-const Toast = createContext();
+const ToastContext = createContext();
 
 const ToastProvider = ({ children }) => {
   const [messages, setMessages] = useState([]);
@@ -26,15 +26,15 @@ const ToastProvider = ({ children }) => {
 
   }, [])
   return (
-    <Toast.Provider value={{ addToast, removeToast }}>
+    <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
       <ToastContainer messages={messages}/>
-    </Toast.Provider> 
+    </ToastContext.Provider> 
   );
 }
 
 function useToast() {
-  const context = useContext(Toast);
+  const context = useContext(ToastContext);
 
   if (!context) {
     throw new Error('useToast must be used within a ToastProvider')

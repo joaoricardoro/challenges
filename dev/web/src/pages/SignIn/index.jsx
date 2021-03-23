@@ -1,30 +1,48 @@
 import React, { useState } from 'react';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
-
+import { useToast } from '../../hooks/ToastContext';
+import { useAuth } from '../../hooks/Auth';
 import imgHeros from '../../images/heros.jpg';
+import { Link } from 'react-router-dom';
+
 import {
   App, Component, Title, Input, TextLink,
-  Button, Image, BtnCancelSignup, InputIcon, IconRight,
+  Button, Image, BtnCancelSignup, InputIcon, IconRight, 
 } from './styles';
 
 
 const Login = () => {
-  const [registerForm, setRegister] = useState(false);
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [showPass, setShowPass] = useState(false);
-  const [checkShowPass, setCheckShowPass] = useState(false);
   const [checkPassword, setCheckPassword] = useState('');
+  const { addToast } = useToast();
+  const { signIn } = useAuth();
 
   const handleRegister = () => {
-    setRegister(!registerForm);
-  }
+    //setRegister(!registerForm);
+  };
 
   const handleSignup = () => {
     if (!userPassword || !checkPassword || (userPassword !== checkPassword)) {
-
+      addToast({
+        type: 'error',
+        title: 'Senhas não batem',
+        description: 'As senhas devem ser iguais'
+      })
     }
-  }
+  };
+
+  // const userCreated = await api.post(user, {
+  //   name: userName, 
+  //   password: userPassword
+  // });
+
+  // if (userCreated) signIn({ userName, userPassword });
+
+  const handleSignin = () => {
+    signIn({ userName, userPassword });
+  };
 
   return (
     <App>
@@ -32,7 +50,6 @@ const Login = () => {
       <Component>
         <Title>iHeros</Title>
         {
-          !registerForm &&
           <>
             <Input
               type="Text"
@@ -52,61 +69,12 @@ const Login = () => {
                 {!showPass && <FaEyeSlash size={30} />}
               </IconRight>
             </InputIcon>
-            <TextLink
-              type="Text"
-              onClick={handleRegister}
-              onChange={() => { }}
-            >
-              {'Sign-up'}
-            </TextLink>
-            <Button onClick={console.log("btn cadastra-se")}>
+            <Link to='/signup' style={{ fontSize: '28px', color: 'red', textDecoration: 'none', transitionDuration: '0.4'}}>
+              Sign-up
+            </Link>
+            <Button onClick={handleSignin}>
               Sign-in
             </Button>
-          </>
-        }
-        {
-          registerForm &&
-          <>
-            <Input
-              type="Text"
-              placeholder="Name"
-              onChange={(value) => setUserName(value.target.value)}
-              value={userName}
-            />
-            <InputIcon>
-              <Input
-                type={!showPass ? "Password" : "Text"}
-                placeholder="Password"
-                onChange={(value) => setUserPassword(value.target.value)}
-                value={userPassword}
-              />
-              <IconRight onClick={() => setShowPass(!showPass)}>
-                {showPass && <FaEye size={30} />}
-                {!showPass && <FaEyeSlash size={30} />}
-              </IconRight>
-            </InputIcon>
-            <InputIcon>
-              <Input
-                type={!checkShowPass ? "Password" : "Text"}
-                placeholder="Confirm password"
-                onChange={(value) => setCheckPassword(value.target.value)}
-                value={checkPassword}
-              />
-              <IconRight onClick={() => setCheckShowPass(!checkShowPass)}>
-                {checkShowPass && <FaEye size={30} />}
-                {!checkShowPass && <FaEyeSlash size={30} />}
-              </IconRight>
-            </InputIcon>
-            <BtnCancelSignup
-              onClick={handleRegister}
-            >
-              Cancel
-            </BtnCancelSignup>
-            <BtnCancelSignup
-              onClick={handleSignup}
-            >
-              Sign-up
-            </BtnCancelSignup>
           </>
         }
       </Component>

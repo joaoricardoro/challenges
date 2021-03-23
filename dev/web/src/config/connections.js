@@ -1,6 +1,6 @@
 export const url = 'http://localhost:4000';
-export const api = `${url}/api/v1`;
-export const auth = `${api}/auth`;
+export const api = `${url}`;
+export const auth = `${api}/signin`;
 export const user = `${api}/users`;
 export const heros = `${api}/heros`;
 export const threat = `${api}/threat`;

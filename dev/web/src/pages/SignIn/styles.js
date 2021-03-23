@@ -6,24 +6,24 @@ export const App = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  position: absolute;
   background-image: url(${imgHeros});
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
-  // background: #780206;
-  // background: -webkit-linear-gradient(to right, #061161, #780206);
-  // background: linear-gradient(to right, #061161, #780206);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
   `;
   
   export const Component = styled.div`
   display: flex;
   flex-direction: column;
+  opacity: 0.96;
   background: #000; 
   border: 1px;
   border-style: solid;
-  // border-radius: 20px;
-  // border-color: #fff;
   width: 420px;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   align-items: center;
 `;
@@ -42,7 +42,6 @@ export const Input = styled.input`
   border: 0px;
   border-radius: 20px;
   outline: none;
-  // outline-style: auto
   padding-left:15px;
   margin: 10px 0px 10px 0px;
   font-size: 25px;
@@ -68,16 +67,6 @@ export const IconRight = styled.span`
 `;
 
 export const TextLink = styled.button`
-  // background: transparent;
-  // text-align: center;
-  // border: 0px;
-  // border-radius: 50px;
-  // margin: 10px 0px 10px 0px;
-  // height: 60px;
-  // width: 350px;
-  // font-size: 25px;
-  // color: #fff;
-
   background: transparent;
   text-align: center;
   border: 0px;
@@ -91,6 +80,7 @@ export const TextLink = styled.button`
 export const Button = styled.button`
   background: red;
   transition-duration: 0.4s;
+  outline: none;
   color: #fff;
   border: 0px;
   border-radius: 50px;

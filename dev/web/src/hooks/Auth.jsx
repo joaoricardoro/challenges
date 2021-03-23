@@ -1,8 +1,8 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 
-import api from '../services/api';
-import { auth } from '../config/constants';
-import { useToast } from '../hooks/ToastContext';
+import fakeApi from '../services/fakeApi';
+import { auth } from '../config/connections';
+import { useToast } from './ToastContext';
 
 const Auth = createContext({});
 
@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
   const signIn = useCallback( async ({ userName, userPassword }) => {
     try {
-      const response = await api.post(auth, {
+      const response = await fakeApi.post(auth, {
         name: userName, 
         password: userPassword
       });

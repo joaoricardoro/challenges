@@ -1,13 +1,13 @@
 import React from 'react';
-import { Auth } from './Auth';
-import { Toast } from './Toast';
+import { AuthProvider } from './Auth';
+import { ToastProvider  } from './ToastContext';
 
 const AppProvider = ({ children }) => (
-  <Toast>
-    <Auth>
+  <ToastProvider >
+    <AuthProvider>
       {children}
-    </Auth>
-  </Toast>
+    </AuthProvider>
+  </ToastProvider >
 );
 
 export default AppProvider;
