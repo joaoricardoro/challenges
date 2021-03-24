@@ -1,89 +1,116 @@
 import React, { useState } from 'react';
-import { FaEyeSlash, FaEye, FaArrowLeft } from 'react-icons/fa';
-import { Link, Redirect } from 'react-router-dom';
-import imgHeros from '../../images/heros.jpg';
-import {
-  App, Component, Title, Input, TextLink,
-  Button, Image, BtnCancelSignup, InputIcon, IconRight,
-} from './styles';
+import { useAuth } from '../../hooks/Auth';
+import { Link, useHistory } from 'react-router-dom';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useToast } from '../../hooks/ToastContext';
+import { register } from '../../config/connections';
+import api from '../../services/api';
 
+import './styles.css';
 
 const SignUp = () => {
-  const [registerForm, setRegister] = useState(false);
+  const form = React.createRef();
+  const userPasswordCheckField = React.createRef();
+  
+  const { addToast } = useToast();
+  const history = useHistory();
+
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [showPass, setShowPass] = useState(false);
-  const [checkShowPass, setCheckShowPass] = useState(false);
-  const [checkPassword, setCheckPassword] = useState('');
+  const [userPasswordCheck, setUserPasswordCheck] = useState('');
+  const [validated, setValidated] = useState(false);
+  const { signIn } = useAuth();
 
-  const handleRegister = () => {
-    setRegister(!registerForm);
-  };
+  const validatePassword = () => {
+    if (userPassword !== userPasswordCheck) {
+      userPasswordCheckField.current.setCustomValidity('Passwords must match');
+      return false;
+    } else {
+      userPasswordCheckField.current.setCustomValidity('');
+      return true;
+    }
+  }
 
-  const handleSignup = () => {
-    if (!userPassword || !checkPassword || (userPassword !== checkPassword)) {
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
+    const isValid = validatePassword() && form.current.checkValidity();
+    setValidated(true);
+
+    if (!isValid) {
+      return;
+    }
+    
+    try {
+      await api.post(register, {
+        name: userName, 
+        password: userPassword,
+        userPasswordCheck: userPasswordCheck
+      });
+
+      addToast({
+        type: 'success',
+        title: `Welcome ${userName}`,
+        description: 'Account created!'
+      });
+      history.push('/')
+    } catch(err) {
+      
+      addToast({
+        type: 'error',
+        title: `Error`,
+        description: 'Something happened!'
+      });
     }
   };
 
-  const handleBackToLogin = () => {
-    Location.href='localhost:3000/';
-  };
-
   return (
-    <App>
-      <Image src={imgHeros} />
-      <Component>
-        <Title>New Register</Title>
-        {
-          <>
-            <Input
-              type="Text"
-              placeholder="Name"
-              onChange={(value) => setUserName(value.target.value)}
-              value={userName}
-            />
-            <InputIcon>
-              <Input
-                type={!showPass ? "Password" : "Text"}
+    <Container className="auth-container">
+      <Row className="justify-content-md-center align-items-center h-100">
+        <Col xs="4">
+          <Form noValidate validated={validated} onSubmit={handleSignUp} ref={form}>
+            <h1 class="text-center">Sign-up</h1>
+            <Form.Group>
+              <Form.Control
+                required
+                size="lg"
+                placeholder="Name"
+                onChange={(value) => setUserName(value.target.value)} 
+                value={userName}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                required
+                size="lg"
+                type="password"
                 placeholder="Password"
-                onChange={(value) => setUserPassword(value.target.value)}
+                onChange={(value) => setUserPassword(value.target.value)} 
                 value={userPassword}
               />
-              <IconRight onClick={() => setShowPass(!showPass)}>
-                {showPass && <FaEye size={30} />}
-                {!showPass && <FaEyeSlash size={30} />}
-              </IconRight>
-            </InputIcon>
-            <InputIcon>
-              <Input
-                type={!checkShowPass ? "Password" : "Text"}
-                placeholder="Confirm password"
-                onChange={(value) => setCheckPassword(value.target.value)}
-                value={checkPassword}
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                required
+                size="lg"
+                type="password"
+                placeholder="Repeat password"
+                onChange={(value) => setUserPasswordCheck(value.target.value)} 
+                value={userPasswordCheck}
+                ref={userPasswordCheckField}
               />
-              <IconRight onClick={() => setCheckShowPass(!checkShowPass)}>
-                {checkShowPass && <FaEye size={30} />}
-                {!checkShowPass && <FaEyeSlash size={30} />}
-              </IconRight>
-            </InputIcon>
-            {/* <BtnCancelSignup 
-              onClick={handleBackToLogin}
-            >
-              Cancel
-            </BtnCancelSignup> */}
-            <Link to="/" style={{ fontSize: '28px', color: 'red', textDecoration: 'none', transitionDuration: '0.4'}}>
-              Cancel
-            </Link>
-            <BtnCancelSignup
-              onClick={handleSignup}
-            >
-              Sign-up
-            </BtnCancelSignup>
-          </>
-        }
-      </Component>
-    </App>
+            </Form.Group>
+
+            <Form.Group>
+              <Button type="submit" variant="primary" size="lg" block onClick={handleSignUp}>Sign-up</Button>
+            </Form.Group>
+
+            <Button as={Link} to="/" variant="secondary" size="lg" block>Cancel</Button>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -1,7 +1,6 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
-
-import fakeApi from '../services/fakeApi';
-import { auth } from '../config/connections';
+import api from '../services/api';
+import { auth, register } from '../config/connections';
 import { useToast } from './ToastContext';
 
 const Auth = createContext({});
@@ -12,39 +11,41 @@ const AuthProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     const token = localStorage.getItem('@token');
     const name = localStorage.getItem('@userName');
-
-    if (token && name) {
-      return {token, name}
-    }
-
-    return {};
+    return {token, name}
   });
 
   const signIn = useCallback( async ({ userName, userPassword }) => {
     try {
-      const response = await fakeApi.post(auth, {
+      const response = await api.post(auth, {
         name: userName, 
         password: userPassword
       });
   
-      const { user, token } = response.data;
-  
+      const { access_token: token } = response.data;
+      if (!token) {
+        throw Error();
+      }
+
       localStorage.setItem('@token', token);
-      localStorage.setItem('@userName', user);
-  
-      setData({token, name: user})
+      localStorage.setItem('@userName', userName);
+
+      setData({ token, name: userName });
+
       addToast({
         type: 'success',
-        title: `Welcome ${user}`,
-        description: 'Logged!'
+        title: `Welcome ${userName}`,
+        description: 'Logged in!'
       })
+      return true;
     } catch (err) {
       addToast({
         type: 'error',
         title: 'Error in authentication!',
         description: 'User or Password invalid!'
-      })
+      });
     }
+
+    return false;
   }, [addToast])
 
   const signOut = useCallback(() => {

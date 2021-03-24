@@ -14,7 +14,7 @@ export const App = styled.div`
   background-position-y: center;
   background-size: cover;
   `;
-  
+
   export const Component = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,6 +40,8 @@ export const Input = styled.input`
   color: #00000;
   background: #fff;
   border: 0px;
+  min-height: 50px;
+  min-width: 340px;
   border-radius: 20px;
   outline: none;
   padding-left:15px;
