@@ -1,44 +1,31 @@
-# Challenges
+# iHero
 
-Com o objetivo de se tornar um funcionário ZRP você precisa provar para o nosso timme, um grupo de profissionais extremamente competentes e habilidosos, que você será capaz de analisar, prever e desenvolver as tarefas que te forem designadas.
+## Problem
 
-Para cada um dos possíveis cargos que você for se candidatar haverá desafios dos mais diversos níveis, podendo estes serem _fáceis_, _normais_ ou _difíceis_. Você pode submeter o teste que achar que mais se encaixa com o seu perfil.
+You are in the year 3150 and you are in charge of the technology sector responsible for the development of the Heroes distribution management system to combat threats. The system should monitor the threat alert system provided by the UN and allocate heroes for each new threat on the globe.
 
-## Como submeter o seu projeto
+## DB:
 
-Cada área e cada projeto tem a sua própria regra quanto a submissão do desafio. Leia atentamente as regras e instruções antes de enviar seu projeto.
+I defined the database in 4 tables (users, hero, threats, hero_threats). With that definition I made an Api with a fake api ([JSON Server](https://www.npmjs.com/package/json-server)).
 
-> Dúvidas? Envie um email para [jobs@zrp.com.br](jobs@zrp.com.br).
+## How to run the project
 
-## Como o processo seletivo da ZRP funciona
+### REQUIREMENTS:
 
-### Primeira Fase - Seleção
+NodeJS v10 or latest.
 
-Na primeira fase você será avaliado por um dos sócios da ZRP. O objetivo dessa avaliação é ver se você possui aderência à cultura da empresa. Nós prezamos por pessoas prestativas, pró-ativas, comunicativas e interessadas em aprender. Suas core skills serão os seus diferenciais aqui.
+### REPOSITORY:
 
-### Segunda Fase - Desafio
+Do a 'git clone [git@github.com](mailto:git@github.com):joaoricardoro/challenges.git'
 
-Se você passar na primeira fase você deverá escolher um desafio que você deseja enviar e nos dar uma previsão de quanto tempo você demorará para enviar aquele desafio.
-Não há tempo limite para a submissão, porém você será avaliado pela sua capacidade de prever seu tempo de entrega.
+### To Run the API :
 
-Depois desse envio nosso time irá avaliar se:
+- go to challenges/dev/api.
+- npm install
+- npm run start
 
-- Você teve uma boa previsão do tempo que você levaria para resolver o problema
-- Resolveu com precisão o problema apresentado
-- Cumpriu com os requisitos e critérios de avaliação daquele desafio
+### To Run the FRONTEND
 
-### Terceira Fase - Feedback
-
-Para aqueles que submeteram o desafio da segunda fase haverá uma revisão do desafio pelo nosso time e te chamaremos para um breve call de feedback dizendo se você foi contratado ou não e o porque da decisão.
-
-### Escolha o seu caminho
-
-Para qual vaga você está se candidatando?
-
-- [Desenvolvedor](./dev)
-- [Devops](./devops)
-- [Designer](./design)
-- [PO](./po)
-- [QA](./qa)
-- [Comercial](./comercial)
-- [RH](./rh)
+- go to challenges/dev/web
+- yarn install
+- yarn start

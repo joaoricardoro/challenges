@@ -13,7 +13,7 @@ const Main = () => {
     <div>
       <Header />
       <Container>
-        <h1 class="mt-2">Welcome {name}</h1>
+        <h1 className="mt-2">Welcome {name}</h1>
       </Container>
     </div>
   );

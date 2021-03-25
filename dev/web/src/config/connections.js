@@ -3,9 +3,9 @@ export const api = `${url}`;
 export const auth = `${api}/login`;
 export const register = `${api}/register`;
 export const user = `${api}/users`;
-export const heros = `${api}/heros`;
-export const threat = `${api}/threat`;
-export const hero_threat = `${api}/hero_threat`;
+export const heroes = `${api}/heroes`;
+export const threats = `${api}/threats`;
+export const hero_threats = `${api}/hero_threats`;
 export const socketURL = 'https://zrp-challenge-socket.herokuapp.com';
 
 export const HashKey = '22629888f8cb13b867b832a724c56251'

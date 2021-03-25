@@ -4,7 +4,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import Header from '../../components/Header'
 
-import { heros as herosEndpoint } from '../../config/connections';
+import { heroes as heroesEndpoint } from '../../config/connections';
 import api from '../../services/api';
 
 const EditHero = () => {
@@ -19,7 +19,7 @@ const EditHero = () => {
   const [validated, setValidated] = useState(false);
 
   const fetchHero = async () => {
-    const { data: { name, rank } } = await api.get(`${herosEndpoint}/${id}`);
+    const { data: { name, rank } } = await api.get(`${heroesEndpoint}/${id}`);
     setHeroName(name);
     setHeroRank(rank);
     setHero({ id, name, rank });
@@ -34,7 +34,7 @@ const EditHero = () => {
 
     if (isValid) {
       try {
-        const response = await api.put(`${herosEndpoint}/${id}`, {
+        const response = await api.put(`${heroesEndpoint}/${id}`, {
           id,
           name: heroName,
           rank: heroRank,
@@ -47,7 +47,7 @@ const EditHero = () => {
           ],
         });
 
-        history.push('/heros');
+        history.push('/heroes');
       } catch(err) {
         // @todo: mostrar tooltip com resultado.
         console.log(err);
@@ -68,7 +68,7 @@ const EditHero = () => {
           <Row className="justify-content-md-center align-items-center h-100">
             <Col xs="4">
               <Form noValidate validated={validated} onSubmit={editHero} ref={form}>
-                <h1 class="text-center">Edit {hero.name}</h1>
+                <h1 className="text-center">Edit {hero.name}</h1>
                 <Form.Group>
                   <Form.Control
                     required
@@ -80,19 +80,26 @@ const EditHero = () => {
                 </Form.Group>
                 <Form.Group>
                   <Form.Control
+                    as="select"
                     required
                     size="lg"
                     placeholder="Rank"
                     onChange={(value) => setHeroRank(value.target.value)} 
                     value={heroRank}
-                  />
+                  >
+                    <option value="">Select</option>
+                    <option value="S">S</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                  </Form.Control>
                 </Form.Group>
 
                 <Form.Group>
                   <Button  type="submit" variant="primary" size="lg" block onClick={editHero}>Edit</Button>
                 </Form.Group>
 
-                <Button as={Link} to="/heros" variant="secondary" size="lg" block>Cancel</Button>
+                <Button as={Link} to="/heroes" variant="secondary" size="lg" block>Cancel</Button>
               </Form>
             </Col>
           </Row>

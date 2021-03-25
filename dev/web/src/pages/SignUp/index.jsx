@@ -6,8 +6,6 @@ import { useToast } from '../../hooks/ToastContext';
 import { register } from '../../config/connections';
 import api from '../../services/api';
 
-import './styles.css';
-
 const SignUp = () => {
   const form = React.createRef();
   const userPasswordCheckField = React.createRef();
@@ -70,7 +68,7 @@ const SignUp = () => {
       <Row className="justify-content-md-center align-items-center h-100">
         <Col xs="4">
           <Form noValidate validated={validated} onSubmit={handleSignUp} ref={form}>
-            <h1 class="text-center">Sign-up</h1>
+            <h1 className="text-center">Sign-up</h1>
             <Form.Group>
               <Form.Control
                 required

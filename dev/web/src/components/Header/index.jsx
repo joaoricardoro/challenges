@@ -13,13 +13,16 @@ const Header = () => {
   return(
     <Container>
       <Navbar bg="light">
-        <Navbar.Brand>IHeros</Navbar.Brand>
+        <Navbar.Brand>IHeroes</Navbar.Brand>
         <Navbar.Collapse>
           <Nav className="mr-auto">
             <Nav.Link as={Link} to="/main">Main</Nav.Link>
-            <NavDropdown title="Heros">
-              <NavDropdown.Item as={Link} to="/heros">Heros list</NavDropdown.Item>
+            <NavDropdown title="Heroes">
+              <NavDropdown.Item as={Link} to="/heroes">Heroes list</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/hero">New hero</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Hero vs Treat">
+              <NavDropdown.Item as={Link} to="/history">List</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

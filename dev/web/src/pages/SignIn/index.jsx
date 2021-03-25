@@ -3,8 +3,6 @@ import { useAuth } from '../../hooks/Auth';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
-import './styles.css';
-
 const Login = () => {
   const form = React.createRef();
   
@@ -35,7 +33,7 @@ const Login = () => {
       <Row className="justify-content-md-center align-items-center h-100">
         <Col xs="4">
           <Form noValidate validated={validated} onSubmit={handleSignin} ref={form}>
-            <h1 class="text-center">Sign-in</h1>
+            <h1 className="text-center">Sign-in</h1>
             <Form.Group>
               <Form.Control
                 required

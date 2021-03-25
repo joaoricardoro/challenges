@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 import { Container, Table, Button, Row, Col } from 'react-bootstrap';
 import Header from '../../components/Header'
 
-import { heros as herosEndpoint } from '../../config/connections';
+import { heroes as heroesEndpoint } from '../../config/connections';
 import api from '../../services/api';
 
 const HeroList = () => {
-  const [heros, setHeros] = useState([]);
+  const [heroes, setHeroes] = useState([]);
 
-  const fetchHeros = async () => {
-    const response = await api.get(herosEndpoint);
-    setHeros(response.data)
+  const fetchHeroes = async () => {
+    const response = await api.get(heroesEndpoint);
+    setHeroes(response.data)
   }
 
   const deleteHero = async (id) => {
     try {
       // @TODO: show tooltip
-      await api.delete(`${herosEndpoint}/${id}`);
-      fetchHeros();
+      await api.delete(`${heroesEndpoint}/${id}`);
+      fetchHeroes();
     } catch(err) {
       // @TODO: show tooltip
       console.log('error')
@@ -26,7 +26,7 @@ const HeroList = () => {
   };
 
   useEffect(() => {
-    fetchHeros();
+    fetchHeroes();
   }, []);
 
   return(
@@ -34,24 +34,26 @@ const HeroList = () => {
       <Header />
       <Container>
         <Row>
-          <Col><h1 class="mt-2">Heros</h1></Col>
+          <Col><h1 className="mt-2">Heroes</h1></Col>
           <Col>
             <Button className="mt-3 float-right" size="sm" variant="info" as={Link} to={`/hero`}>Add hero</Button>
           </Col>
         </Row>
 
-        <Table stripped bordered hover>
+        <Table stripped="true" bordered hover>
           <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Rank</th>
-            <th>.:.</th>
-            <th>.:.</th>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Rank</th>
+              <th>.:.</th>
+              <th>.:.</th>
+            </tr>
           </thead>
           <tbody>
-            {heros.map((hero) => {
+            {heroes.map((hero) => {
               return (
-                <tr>
+                <tr key={hero.id}>
                   <td>{hero.id}</td>
                   <td>{hero.name}</td>
                   <td>{hero.rank}</td>

@@ -1,4 +1,4 @@
-### iHeros - Teste Fullstack
+### iHeroes - Teste Fullstack
     
 Este é o teste usado por nós aqui da ZRP para avaliar tecnicamente os candidatos a nossas vagas de desenvolvedores Fullstack. Se você estiver participando de um processo seletivo para nossa equipe, certamente em algum momento receberá este link, mas caso você tenha chegado aqui "por acaso", sinta-se convidado a desenvolver nosso teste e enviar uma mensagem para nós no e-mail jobs@zrp.com.br.
 
@@ -18,7 +18,7 @@ Nós não definimos um tempo limite para resolução deste teste, o que vale par
 #### Descrição
 > Rede de cadastro(test backend) e distribuição(test frontend) de heroes, levando em consideração o nível da ameaça que estaria atacando uma determinada região.
 
-Você está no ano de 3150 e está a frente do setor de tecnologia responsável pelo desenvolvimento do sistema de gerenciamento de distribuição de Heros para combater ameaças. O sistema deve monitorar o sistema de alertas de ameças provido pela ONU e alocar os herois para cada nova ameaça existente no globo terrestre. 
+Você está no ano de 3150 e está a frente do setor de tecnologia responsável pelo desenvolvimento do sistema de gerenciamento de distribuição de Heroes para combater ameaças. O sistema deve monitorar o sistema de alertas de ameças provido pela ONU e alocar os herois para cada nova ameaça existente no globo terrestre. 
 
 Para isso, será preciso implementar as seguintes funcionalidades:
 

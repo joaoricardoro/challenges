@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "admin"
+    }
+  ],
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Hulk",
+      "rank": "S",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ironman",
+      "rank": "B",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Spider-man",
+      "rank": "A",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Homelander",
+      "rank": "S",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    }
+  ],
+  "threats": [
+    {
+      "id": 1,
+      "name": "Loki",
+      "level": "God",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Smaug",
+      "level": "Dragon",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Black tiger",
+      "level": "Tiger",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Lupin",
+      "level": "Wolf",
+      "location": [
+        {
+          "lat": -5.836597,
+          "lng": -35.236007
+        }
+      ]
+    }
+  ],
+  "hero_threats": [
+    {
+      "id": 1,
+      "heroId": 1,
+      "threatId": 1,
+      "defeatedAt": null
+    },
+    {
+      "id": 2,
+      "heroId": 2,
+      "threatId": 2,
+      "defeatedAt": null
+    },
+    {
+      "id": 3,
+      "heroId": 3,
+      "threatId": 3,
+      "defeatedAt": null
+    },
+    {
+      "id": 4,
+      "heroId": 4,
+      "threatId": 4,
+      "defeatedAt": null
+    }
+  ]
+}

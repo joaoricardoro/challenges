@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import imgHeros from '../../images/heros.jpg';
+import imgHeroes from '../../images/heroes.jpg';
 
 export const App = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const App = styled.div`
   height: 100vh;
   width: 100vw;
   position: absolute;
-  background-image: url(${imgHeros});
+  background-image: url(${imgHeroes});
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
   background-position-x: center;
@@ -105,5 +105,5 @@ font-size: 25px;
 `;
 
 export const Image = styled.div`
-  background-image: url(${imgHeros});
+  background-image: url(${imgHeroes});
 `;
