@@ -63,25 +63,6 @@ const Login = () => {
         </Col>
       </Row>
     </Container>
-      // <InputIcon>
-      //   <Input
-      //     type={!showPass ? "Password" : "Text"}
-      //     placeholder="Password"
-      //     onChange={(value) => setUserPassword(value.target.value)}
-      //     value={userPassword}
-      //   />
-      //   <IconRight onClick={() => setShowPass(!showPass)}>
-      //     {showPass && <FaEye size={30} />}
-      //     {!showPass && <FaEyeSlash size={30} />}
-      //   </IconRight>
-      // </InputIcon>
-      // <Link to='/signup' style={{ fontSize: '28px', color: 'red', textDecoration: 'none', transitionDuration: '0.4'}}>
-      //   Sign-up
-      // </Link>
-      // <Button onClick={handleSignin}>
-      //   Sign-in
-      // </Button>
-    // </Component>
   );
 };
 
